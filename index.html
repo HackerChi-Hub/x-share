@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>黑粉科技 · X 一键图文直发台</title>
+<style>
+  :root {
+    --bg: #080d17;
+    --panel: #111927;
+    --panel-2: #172133;
+    --border: #2a3950;
+    --accent: #00e5ff;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 20px 16px 48px;
+    background: radial-gradient(circle at 85% 10%, rgba(0,229,255,0.12), transparent 45%), var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif;
+  }
+  main { max-width: 920px; margin: 0 auto; }
+  .head {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;
+    border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px;
+  }
+  .brand { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; }
+  .brand span { color: var(--accent); }
+  .meta-pill {
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.35);
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+  .tab-btn {
+    background: var(--panel); color: var(--muted); border: 1px solid var(--border);
+    padding: 10px 16px; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer;
+    transition: all .15s ease;
+  }
+  .tab-btn.active {
+    background: rgba(0,229,255,0.14); color: #fff; border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(0,229,255,0.3);
+  }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+    padding: 22px; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+  }
+  .grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
+  .img-box {
+    background: #060911; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    position: relative;
+  }
+  .img-box img { display: block; width: 100%; height: auto; }
+  .img-status {
+    padding: 8px 12px; font-size: 13px; color: var(--muted);
+    background: var(--panel-2); border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  }
+  .editor-top {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 10px;
+  }
+  .counter {
+    font-size: 13px; font-weight: 800; padding: 4px 10px; border-radius: 8px;
+    border: 1px solid rgba(16,185,129,0.45); background: rgba(16,185,129,0.12); color: #6ee7b7;
+  }
+  .counter.over {
+    border-color: rgba(239,68,68,0.6); background: rgba(239,68,68,0.16); color: #fca5a5;
+  }
+  textarea {
+    width: 100%; min-height: 210px; padding: 14px; border-radius: 12px;
+    border: 1px solid var(--border); background: #0a101b; color: #f8fafc;
+    font: 15.5px/1.65 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    resize: vertical; outline: none;
+  }
+  textarea:focus { border-color: var(--accent); }
+  .actions { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .btn-primary {
+    width: 100%; padding: 14px 18px; border: 0; border-radius: 12px;
+    font-size: 16px; font-weight: 800; cursor: pointer;
+    background: linear-gradient(135deg, #00e5ff, #3b82f6); color: #04101d;
+    box-shadow: 0 8px 24px rgba(0,229,255,0.22);
+  }
+  .btn-primary:hover { filter: brightness(1.06); }
+  .btn-mobile {
+    width: 100%; padding: 14px 18px; border: 0; border-radius: 12px;
+    font-size: 16px; font-weight: 800; cursor: pointer; display: none;
+    background: linear-gradient(135deg, #10b981, #059669); color: #fff;
+  }
+  .sub-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .btn-sec {
+    flex: 1; min-width: 120px; padding: 9px 12px; border-radius: 9px;
+    border: 1px solid var(--border); background: var(--panel-2); color: var(--text);
+    font-size: 13.5px; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none;
+  }
+  .banner {
+    margin-top: 14px; padding: 12px 14px; border-radius: 10px; font-size: 14px; font-weight: 600;
+    display: none; line-height: 1.55;
+  }
+  .banner.ok { display: block; background: rgba(16,185,129,0.14); border: 1px solid rgba(16,185,129,0.45); color: #a7f3d0; }
+  .banner.warn { display: block; background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.45); color: #fde68a; }
+  .banner.err { display: block; background: rgba(239,68,68,0.14); border: 1px solid rgba(239,68,68,0.45); color: #fecaca; }
+  .hint { margin-top: 12px; font-size: 13px; color: var(--muted); }
+  kbd {
+    background: #1e293b; border: 1px solid #475569; border-radius: 5px;
+    padding: 1px 6px; font-family: ui-monospace, monospace; font-size: 12px; color: #e2e8f0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="head">
+    <div class="brand">⚡ 黑粉科技 · <span>X 一键图文直发台</span></div>
+    <div class="meta-pill" id="packBadge">正在加载发布包...</div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="card">
+    <div class="grid">
+      <div>
+        <div class="img-box">
+          <img id="previewImg" alt="X 配图预览" />
+          <div class="img-status">
+            <span id="imgReadyText">正在预加载高清 PNG...</span>
+            <a id="rawImgLink" href="#" target="_blank" rel="noopener" style="color:#38bdf8;text-decoration:none;font-weight:700;">原图</a>
+          </div>
+        </div>
+        <div class="hint" id="focusHint"></div>
+      </div>
+
+      <div>
+        <div class="editor-top">
+          <strong style="font-size:15px;">免费版推文正文（可直接编辑）</strong>
+          <span class="counter" id="weightCounter">0 / 280</span>
+        </div>
+        <textarea id="tweetBox" spellcheck="false" placeholder="正在读取文案..."></textarea>
+
+        <div class="actions">
+          <button class="btn-mobile" id="btnMobileShare">📱 手机系统级图文同发 X</button>
+          <button class="btn-primary" id="btnDesktopSend">🚀 一键复制高清配图并打开 X 发送</button>
+          <div class="sub-actions">
+            <button class="btn-sec" id="btnCopyImgOnly">🖼️ 仅复制图片</button>
+            <button class="btn-sec" id="btnCopyTextOnly">📋 仅复制文字</button>
+            <a class="btn-sec" id="btnDownloadImg" download="hyphentech-x-card.png" href="#">⬇️ 下载配图</a>
+          </div>
+        </div>
+
+        <div class="banner" id="statusBanner"></div>
+        <div class="hint">
+          电脑端原理：点击蓝色主按钮会在<strong>当前已登录 X 的浏览器</strong>中将高清配图写入系统剪贴板，同时打开官方 <code style="color:#93c5fd;">x.com/intent/post</code> 预填正文；切换到新标签页按 <kbd>⌘V</kbd>（Windows 按 <kbd>Ctrl+V</kbd>）即可附带图片点击发帖，安全零封号风险。
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  const qs = new URLSearchParams(location.search);
+  const stamp = (qs.get("id") || "").trim();
+  const initialTab = Math.max(0, parseInt(qs.get("tab") || "0", 10) || 0);
+
+  let entries = [];
+  let activeIdx = initialTab;
+  let readyPngBlob = null;
+  let readyPngFile = null;
+
+  const packBadge = document.getElementById("packBadge");
+  const tabsEl = document.getElementById("tabs");
+  const previewImg = document.getElementById("previewImg");
+  const imgReadyText = document.getElementById("imgReadyText");
+  const rawImgLink = document.getElementById("rawImgLink");
+  const focusHint = document.getElementById("focusHint");
+  const tweetBox = document.getElementById("tweetBox");
+  const weightCounter = document.getElementById("weightCounter");
+  const btnMobileShare = document.getElementById("btnMobileShare");
+  const btnDesktopSend = document.getElementById("btnDesktopSend");
+  const btnCopyImgOnly = document.getElementById("btnCopyImgOnly");
+  const btnCopyTextOnly = document.getElementById("btnCopyTextOnly");
+  const btnDownloadImg = document.getElementById("btnDownloadImg");
+  const statusBanner = document.getElementById("statusBanner");
+
+  function xWeightedLength(str) {
+    const s = String(str || "");
+    const urls = s.match(/https?:\/\/[^\s]+/gi) || [];
+    const body = s.replace(/https?:\/\/[^\s]+/gi, "");
+    let w = urls.length * 23;
+    for (const ch of body) {
+      const cp = ch.codePointAt(0);
+      w += (cp >= 0 && cp <= 0x10ff) ? 1 : 2;
+    }
+    return w;
+  }
+
+  function updateCounter() {
+    const w = xWeightedLength(tweetBox.value);
+    const over = w > 280;
+    weightCounter.textContent = (over ? "⚠️ 超限：" : "✅ 免费版合规：") + w + " / 280";
+    weightCounter.className = over ? "counter over" : "counter";
+  }
+
+  function showBanner(kind, msg) {
+    statusBanner.className = "banner " + kind;
+    statusBanner.textContent = msg;
+  }
+
+  function clearBanner() {
+    statusBanner.className = "banner";
+    statusBanner.textContent = "";
+  }
+
+  async function resolveFirstOkJson(urls) {
+    for (const u of urls) {
+      try {
+        const res = await fetch(u, { cache: "no-store" });
+        if (res.ok) return { data: await res.json(), baseDir: u.replace(/\/manifest\.json.*$/, "") };
+      } catch (_) {}
+    }
+    return null;
+  }
+
+  async function preloadPngForClipboard(imgUrls, fileName) {
+    readyPngBlob = null;
+    readyPngFile = null;
+    btnMobileShare.style.display = "none";
+    imgReadyText.textContent = "正在预加载高清配图...";
+    for (const url of imgUrls) {
+      try {
+        const res = await fetch(url, { mode: "cors", cache: "no-store" });
+        if (!res.ok) continue;
+        const srcBlob = await res.blob();
+        const bmp = await createImageBitmap(srcBlob);
+        const canvas = document.createElement("canvas");
+        canvas.width = bmp.width;
+        canvas.height = bmp.height;
+        canvas.getContext("2d").drawImage(bmp, 0, 0);
+        bmp.close();
+        const pngBlob = await new Promise((resolve, reject) =>
+          canvas.toBlob(b => (b ? resolve(b) : reject(new Error("toBlob failed"))), "image/png")
+        );
+        readyPngBlob = pngBlob;
+        readyPngFile = new File([pngBlob], fileName || "hyphentech-x-card.png", { type: "image/png" });
+        const objUrl = URL.createObjectURL(pngBlob);
+        previewImg.src = objUrl;
+        rawImgLink.href = url;
+        btnDownloadImg.href = objUrl;
+        btnDownloadImg.download = fileName || "hyphentech-x-card.png";
+        imgReadyText.textContent = "✅ 高清配图已就绪（点击即贴）";
+        try {
+          if (navigator.canShare && navigator.canShare({ files: [readyPngFile] })) {
+            btnMobileShare.style.display = "block";
+          }
+        } catch (_) {}
+        return true;
+      } catch (_) {}
+    }
+    if (imgUrls[0]) {
+      previewImg.src = imgUrls[0];
+      rawImgLink.href = imgUrls[0];
+      btnDownloadImg.href = imgUrls[0];
+    }
+    imgReadyText.textContent = "⚠️ 请点右侧下载或右键图片";
+    return false;
+  }
+
+  function renderTabs() {
+    tabsEl.innerHTML = "";
+    entries.forEach((ent, i) => {
+      const btn = document.createElement("button");
+      btn.className = "tab-btn" + (i === activeIdx ? " active" : "");
+      btn.textContent = ent.label || ("贴文 " + (i + 1));
+      btn.onclick = () => selectTab(i);
+      tabsEl.appendChild(btn);
+    });
+  }
+
+  function selectTab(idx) {
+    activeIdx = Math.max(0, Math.min(idx, entries.length - 1));
+    renderTabs();
+    clearBanner();
+    const ent = entries[activeIdx];
+    tweetBox.value = ent.text || "";
+    updateCounter();
+    focusHint.textContent = ent.hint ? ("📌 重点说明：" + ent.hint) : "";
+    const file = ent.image || "0.png";
+    const candidates = ent._imgCandidates || [
+      "./posts/" + encodeURIComponent(stamp) + "/" + file,
+      "https://cdn.jsdelivr.net/gh/HackerChi-Hub/x-share@main/posts/" + encodeURIComponent(stamp) + "/" + file,
+      "https://raw.githubusercontent.com/HackerChi-Hub/x-share/main/posts/" + encodeURIComponent(stamp) + "/" + file
+    ];
+    preloadPngForClipboard(candidates, (stamp || "x") + "-" + file);
+  }
+
+  async function writePngClipboard() {
+    if (!readyPngBlob) return false;
+    if (!navigator.clipboard || !navigator.clipboard.write || typeof ClipboardItem === "undefined") return false;
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ "image/png": readyPngBlob })]);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  btnDesktopSend.onclick = async () => {
+    const txt = tweetBox.value.trim();
+    const w = xWeightedLength(txt);
+    if (!txt) return showBanner("err", "推文正文不能为空。");
+    if (w > 280) {
+      showBanner("warn", "当前加权字数 " + w + "/280 超出 X 免费版上限，请略作精简后再发。");
+      return;
+    }
+    const intentUrl = "https://x.com/intent/post?text=" + encodeURIComponent(txt);
+    const clipOk = await writePngClipboard();
+    const popup = window.open(intentUrl, "_blank", "noopener");
+    if (!popup) {
+      location.href = intentUrl;
+    }
+    if (clipOk) {
+      showBanner("ok", "✅ 高清配图已写入剪贴板，且已在已登录浏览器打开 X 预填文字框！请切到新开页面按 ⌘V (Ctrl+V) 粘贴图片即可点击发帖！");
+    } else {
+      showBanner("warn", "⚠️ 已打开 X 发帖框并预填全部文字！由于当前浏览器拦截了剪贴板自动写图，请点下方「下载配图」拖入 X 编辑框即可。");
+    }
+  };
+
+  btnMobileShare.onclick = async () => {
+    const txt = tweetBox.value.trim();
+    if (!readyPngFile || !navigator.share) return;
+    try {
+      await navigator.share({ text: txt, files: [readyPngFile] });
+      showBanner("ok", "✅ 已同时调起手机系统分享（正文 + 高清配图），选择 X App 即可直接发出！");
+    } catch (err) {
+      if (err && err.name !== "AbortError") {
+        showBanner("warn", "系统分享未完成：" + err.message + "；请点「复制文字 + 下载配图」。");
+      }
+    }
+  };
+
+  btnCopyImgOnly.onclick = async () => {
+    const ok = await writePngClipboard();
+    showBanner(ok ? "ok" : "warn", ok ? "✅ 高清 PNG 配图已复制到剪贴板！" : "⚠️ 浏览器不允许后台写图片剪贴板，请直接右键预览图复制或点右侧下载。");
+  };
+
+  btnCopyTextOnly.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(tweetBox.value.trim());
+      showBanner("ok", "✅ 推文正文已复制！");
+    } catch (_) {
+      tweetBox.select();
+      document.execCommand("copy");
+      showBanner("ok", "✅ 推文正文已复制！");
+    }
+  };
+
+  tweetBox.oninput = updateCounter;
+
+  async function init() {
+    if (location.hash.startsWith("#payload=")) {
+      try {
+        const b64 = location.hash.slice(9).replace(/-/g, "+").replace(/_/g, "/");
+        const bin = atob(b64);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        const obj = JSON.parse(new TextDecoder().decode(bytes));
+        entries = obj.entries || [{ label: "单条推文", text: obj.text || "", _imgCandidates: obj.image_url ? [obj.image_url] : [] }];
+        packBadge.textContent = obj.title || "实时直发";
+        selectTab(0);
+        return;
+      } catch (_) {}
+    }
+
+    const targetId = stamp || "latest";
+    const manifestUrls = [
+      "./posts/" + encodeURIComponent(targetId) + "/manifest.json?t=" + Date.now(),
+      "https://raw.githubusercontent.com/HackerChi-Hub/x-share/main/posts/" + encodeURIComponent(targetId) + "/manifest.json?t=" + Date.now(),
+      "https://cdn.jsdelivr.net/gh/HackerChi-Hub/x-share@main/posts/" + encodeURIComponent(targetId) + "/manifest.json"
+    ];
+    const resolved = await resolveFirstOkJson(manifestUrls);
+    if (!resolved || !Array.isArray(resolved.data.entries) || !resolved.data.entries.length) {
+      packBadge.textContent = stamp ? ("未找到发布包 " + stamp) : "待接入最新班次";
+      showBanner("warn", stamp ? "未拉取到发布包 " + stamp + "（若刚刚推送请等待约 15 秒刷新重试）。" : "当前未指定 ?id=... 参数，可由 Telegram 简报中的直发链接一键带参进入。");
+      return;
+    }
+    entries = resolved.data.entries.map(ent => ({
+      ...ent,
+      _imgCandidates: [
+        "./posts/" + encodeURIComponent(resolved.data.id || targetId) + "/" + ent.image,
+        "https://raw.githubusercontent.com/HackerChi-Hub/x-share/main/posts/" + encodeURIComponent(resolved.data.id || targetId) + "/" + ent.image,
+        "https://cdn.jsdelivr.net/gh/HackerChi-Hub/x-share@main/posts/" + encodeURIComponent(resolved.data.id || targetId) + "/" + ent.image
+      ]
+    }));
+    packBadge.textContent = (resolved.data.title || resolved.data.id || targetId) + "（共 " + entries.length + " 条）";
+    selectTab(initialTab);
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
