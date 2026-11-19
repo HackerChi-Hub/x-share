@@ -1,0 +1,31 @@
+{
+  "id": "2026-11-19-2000",
+  "title": "黑粉科技 · 11-19 晚报",
+  "updated_at": "2026-11-19T21:10:41.356201+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ Gemini 4 Neon 六天连发冲击前沿编程，19.1GB 本地权重与 llama.cpp 新引擎把开放智能拉进消费级硬件\n• Gemini 4 Neon 上线，前沿编程模型进…\n• Genie 4 进入 Project Genie…\n• Lythri-Wink-2B 发布四比特 GGU…\nhttps://x.com/GoogleDeepMind/status/2123167884411077030",
+      "weighted_length": 228,
+      "image": "0.png",
+      "hint": "Neon六天连发与19.1GB本地推理新拐点（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 选题 1 · 【破圈拉新轨】Gemini 4 Neon 六天连发：编程模型变卷与 AI 参与造芯内幕",
+      "text": "🔗 https://x.com/GoogleDeepMind/status/2123167884411077030",
+      "weighted_length": 26,
+      "image": "1.png",
+      "hint": "【破圈拉新轨】Gemini 4 Neon 六天连发：编程模型变卷与 AI 参与造芯内幕"
+    },
+    {
+      "index": 2,
+      "label": "③ 选题 2 · 【硬核留存轨】llama.cpp 与 GGUF 端侧部署：19.1GB 跑 27B 并压低编程 Token",
+      "text": "🔗 https://news.ycombinator.com/item?id=50551046",
+      "weighted_length": 26,
+      "image": "2.png",
+      "hint": "【硬核留存轨】llama.cpp 与 GGUF 端侧部署：19.1GB 跑 27B 并压低编程 Token"
+    }
+  ]
+}
