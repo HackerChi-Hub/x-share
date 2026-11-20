@@ -153,8 +153,9 @@
         </div>
 
         <div class="banner" id="statusBanner"></div>
+        <div class="hint" id="modeHint"></div>
         <div class="hint">
-          电脑端原理：点击蓝色主按钮会在<strong>当前已登录 X 的浏览器</strong>中将高清配图写入系统剪贴板，同时打开官方 <code style="color:#93c5fd;">x.com/intent/post</code> 预填正文；切换到新标签页按 <kbd>⌘V</kbd>（Windows 按 <kbd>Ctrl+V</kbd>）即可附带图片点击发帖，安全零封号风险。
+          兼容模式原理：点击蓝色主按钮会在<strong>当前已登录 X 的浏览器</strong>中将高清配图写入系统剪贴板，同时打开官方 <code style="color:#93c5fd;">x.com/intent/post</code> 预填正文；切换到新标签页按 <kbd>⌘V</kbd>（Windows 按 <kbd>Ctrl+V</kbd>）即可附带图片点击发帖，安全零封号风险。
         </div>
       </div>
     </div>
@@ -171,6 +172,9 @@
   let activeIdx = initialTab;
   let readyPngBlob = null;
   let readyPngFile = null;
+  let activeImgUrls = [];
+  let activeFileName = "hyphentech-x-card.png";
+  const autoMode = qs.get("auto") === "1";
 
   const packBadge = document.getElementById("packBadge");
   const tabsEl = document.getElementById("tabs");
@@ -186,6 +190,7 @@
   const btnCopyTextOnly = document.getElementById("btnCopyTextOnly");
   const btnDownloadImg = document.getElementById("btnDownloadImg");
   const statusBanner = document.getElementById("statusBanner");
+  const modeHint = document.getElementById("modeHint");
 
   function xWeightedLength(str) {
     const s = String(str || "");
@@ -295,7 +300,31 @@
       "https://cdn.jsdelivr.net/gh/HackerChi-Hub/x-share@main/posts/" + encodeURIComponent(stamp) + "/" + file,
       "https://raw.githubusercontent.com/HackerChi-Hub/x-share/main/posts/" + encodeURIComponent(stamp) + "/" + file
     ];
-    preloadPngForClipboard(candidates, (stamp || "x") + "-" + file);
+    activeImgUrls = candidates.map(u => { try { return new URL(u, location.href).href; } catch (_) { return u; } });
+    activeFileName = (stamp || "x") + "-" + file;
+    preloadPngForClipboard(candidates, activeFileName);
+  }
+
+  function autoAttachInstalled() {
+    return !!document.documentElement.getAttribute("data-hfkj-autoattach");
+  }
+
+  function queueAutoAttach(txt) {
+    if (!autoAttachInstalled() || !activeImgUrls.length) return false;
+    document.dispatchEvent(new CustomEvent("hfkj-xshare-queue", {
+      detail: JSON.stringify({ imageUrls: activeImgUrls, fileName: activeFileName, text: txt })
+    }));
+    return !!document.documentElement.getAttribute("data-hfkj-queued");
+  }
+
+  function refreshModeUi() {
+    if (autoAttachInstalled()) {
+      btnDesktopSend.textContent = "🚀 一键打开 X 并自动挂载配图";
+      modeHint.innerHTML = "✅ 已安装「自动挂图」脚本：点击后在已登录 X 的浏览器打开发帖框，<strong>正文与高清配图自动就位</strong>，确认后点「发帖」即可（Telegram 链接会直接自动跳转）。";
+    } else {
+      modeHint.innerHTML = "⚠️ 尚未安装「自动挂图」脚本，当前为兼容模式（配图写入剪贴板后需在 X 按 <kbd>⌘V</kbd>）。" +
+        "一次性安装：Chrome 装 Tampermonkey → 扩展详情打开「允许用户脚本」→ <a href=\"./hfkj-x-autoattach.user.js\" style=\"color:#38bdf8;font-weight:700;\">点此安装自动挂图脚本</a>，之后点击 Telegram 链接即可全自动带图。";
+    }
   }
 
   async function writePngClipboard() {
@@ -318,6 +347,12 @@
       return;
     }
     const intentUrl = "https://x.com/intent/post?text=" + encodeURIComponent(txt);
+    if (queueAutoAttach(txt)) {
+      const popupA = window.open(intentUrl, "_blank", "noopener");
+      if (!popupA) location.href = intentUrl;
+      showBanner("ok", "✅ 已打开 X 发帖框：正文已预填，高清配图正在自动挂载（约 2–5 秒），确认后点「发帖」即可！");
+      return;
+    }
     const clipOk = await writePngClipboard();
     const popup = window.open(intentUrl, "_blank", "noopener");
     if (!popup) {
@@ -372,6 +407,7 @@
         entries = obj.entries || [{ label: "单条推文", text: obj.text || "", _imgCandidates: obj.image_url ? [obj.image_url] : [] }];
         packBadge.textContent = obj.title || "实时直发";
         selectTab(0);
+        maybeAutoLaunch();
         return;
       } catch (_) {}
     }
@@ -398,8 +434,23 @@
     }));
     packBadge.textContent = (resolved.data.title || resolved.data.id || targetId) + "（共 " + entries.length + " 条）";
     selectTab(initialTab);
+    maybeAutoLaunch();
   }
 
+  function maybeAutoLaunch() {
+    refreshModeUi();
+    if (!autoMode || !autoAttachInstalled()) return;
+    const txt = tweetBox.value.trim();
+    if (!txt || xWeightedLength(txt) > 280) return;
+    if (!queueAutoAttach(txt)) return;
+    showBanner("ok", "🚀 正在跳转 X 发帖框，正文与高清配图将自动就位…");
+    // 无用户手势时新窗口会被拦截，直接在当前标签跳转
+    setTimeout(() => { location.href = "https://x.com/intent/post?text=" + encodeURIComponent(txt); }, 350);
+  }
+
+  refreshModeUi();
+  // 用户脚本在 document-start 注入；若晚于页面脚本，补一次刷新
+  setTimeout(refreshModeUi, 600);
   init();
 })();
 </script>
