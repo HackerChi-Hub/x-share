@@ -1,0 +1,31 @@
+{
+  "id": "2026-11-20-2000",
+  "title": "黑粉科技 · 11-20 晚报",
+  "updated_at": "2026-11-20T20:04:35.314025+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ Qwen3.6-27B 与混元 GGUF 把端侧部署推回主舞台，Ollama 的内存压力自适应则让 Mac 本地推理更值得马上验证。\n• Qwen3.6-27B 模型卡更新\n• MiniMax-H3 更新：图生视频\nhttps://huggingface.co/Qwen/Qwen3.6-27B",
+      "weighted_length": 184,
+      "image": "0.png",
+      "hint": "Qwen27B本地部署，Mac推理迎来内存新招（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 破圈 · Qwen3.6-27B",
+      "text": "Qwen3.6-27B 四位量化权重按参数估算约19.1GB，但不等于整机只占19.1GB：KV缓存、视觉输入和macOS都要余量。24GB别急着冲，先核模型卡与量化文件；16GB可先从2B跑通。官方模型卡：https://huggingface.co/Qwen/Qwen3.6-27B",
+      "weighted_length": 190,
+      "image": "1.png",
+      "hint": "截 Qwen3.6-27B 模型卡顶部任务标签、Apache-2.0 与文件区，并配一张 Ollama 发布页中 fixed 8 GiB allowance 和 memory pressure 原文的局部放大图。"
+    },
+    {
+      "index": 2,
+      "label": "③ 留存 · WeMM-Video-2B-GGUF",
+      "text": "混元 WeMM-Video-2B-GGUF 上架，四位量化权重估算约2.8GB。但别急着下最大杯：GGUF能下载，不等于llama.cpp已支持视频生成。先核文件与架构，再用llama-swap做按需换模。官方仓库：https://huggingface.co/tencent/WeMM-Video-2B-GGUF",
+      "weighted_length": 191,
+      "image": "2.png",
+      "hint": "优先截 WeMM-Video-2B-GGUF 仓库文件列表的真实文件名和体积；第二张截 llama-swap v275 的 Playground 参数变更，第三张保留终端加载成功或架构不支持的原生日志。"
+    }
+  ]
+}
