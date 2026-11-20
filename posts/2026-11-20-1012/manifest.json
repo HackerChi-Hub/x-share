@@ -1,0 +1,31 @@
+{
+  "id": "2026-11-20-1012",
+  "title": "黑粉科技 · 11-20 早报",
+  "updated_at": "2026-11-20T10:14:24.370421+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ Gemini 4 Neon 登顶 Agent Arena 榜一、Anthropic 上市首日破 2 万亿市值，而真正能白嫖的窗口正在关闭：OpenRouter 免费池又下架 1 款模型，端侧只剩 Parakeet TDT 0.6B 这类 1.9GB 级小模型还能塞进你的 Mac。 https://x.com/arena/status/2123169189397709174",
+      "weighted_length": 223,
+      "image": "0.png",
+      "hint": "Neon登顶Agent榜 与免费池下架 同时发生（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 破圈 · Gemini 4 Neon",
+      "text": "Gemini 4 Neon 拿 Agent Arena 1336 分、总榜第二，压过 Carbon 的 1303 分。但真新闻在价格：Carbon $4/$20、Neon $3/$15、Hydrogen $1.5/$7.5 每百万 token。选模型不再是选最强，是选最便宜那个够用的。 https://x.com/ArtificialAnlys/status/2123513872095269336 https://x.com/arena/status/2123169189397709174",
+      "weighted_length": 239,
+      "image": "1.png",
+      "hint": "优先截取 Artificial Analysis 原帖里逐条列出的 Gemini 4 Carbon/Neon/Hydrogen 三档每百万 token 价格那一段，以及紧随其后的 Arena 1336 分排行榜对照图"
+    },
+    {
+      "index": 2,
+      "label": "③ 留存 · parakeet-tdt-0.6b-",
+      "text": "1.9GB 的 parakeet-tdt-0.6b-v2 加 mlx-audio v0.6.7，16GB Mac 上本地转写加 TTS 全部跑通，零 API 费、音频不出本机。同一天 OpenRouter 零定价池把 inkling-2-small:free 下架了，默认免费路由随时会断，备用线路先备好。 https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2",
+      "weighted_length": 232,
+      "image": "2.png",
+      "hint": "优先截取 NVIDIA parakeet-tdt-0.6b-v2 模型卡页的下载量与赞数区块，以及右侧 Files 列表中模型文件的实际体积刻度"
+    }
+  ]
+}
