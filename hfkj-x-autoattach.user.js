@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         黑粉科技 · X 一键带图直发（自动挂载配图）
 // @namespace    https://hackerchi-hub.github.io/x-share/
-// @version      1.0.0
+// @version      1.1.0
 // @description  从 x-share 直发台跳转到 X 发帖框后，自动把本期高清配图挂载进编辑框（无需 ⌘V），只需人工点「发帖」。
 // @author       HackerChi
 // @match        https://hackerchi-hub.github.io/x-share/*
@@ -24,7 +24,7 @@
 
   const PENDING_KEY = "hfkj_x_pending_media";
   const PENDING_TTL_MS = 5 * 60 * 1000;
-  const VERSION = "1.0.0";
+  const VERSION = "1.1.0";
 
   // ---------- 1) x-share 直发台：声明已安装 + 接收待挂载配图 ----------
   if (location.hostname === "hackerchi-hub.github.io") {
@@ -123,8 +123,12 @@
     });
   }
 
+  const FILE_INPUT_SEL = 'input[data-testid="fileInput"], input[type="file"][accept*="image"]';
   const hasAttachedMedia = () =>
-    !!document.querySelector('[data-testid="attachments"] img, [data-testid="attachments"] [role="img"]');
+    !!document.querySelector(
+      '[data-testid="attachments"] img, [data-testid="attachments"] [role="img"], ' +
+        '[data-testid="tweetPhoto"], [aria-label="Remove media"], [aria-label="移除媒体"], [aria-label="删除媒体"]'
+    );
 
   function attachViaInput(input, file) {
     const dt = new DataTransfer();
@@ -146,39 +150,64 @@
     return new Promise((r) => setTimeout(r, ms));
   }
 
+  function attachViaDrop(target, file) {
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    for (const type of ["dragenter", "dragover", "drop"]) {
+      target.dispatchEvent(new DragEvent(type, { bubbles: true, cancelable: true, dataTransfer: dt }));
+    }
+  }
+
+  async function waitAttached(ms) {
+    for (let i = 0; i < ms / 250 && !hasAttachedMedia(); i++) await sleep(250);
+    return hasAttachedMedia();
+  }
+
+  let attaching = false;
   async function runAttach() {
-    if (!isComposePath()) return;
+    if (!isComposePath() || attaching) return;
     const pending = GM_getValue(PENDING_KEY, null);
     if (!pending || !pending.ts || Date.now() - pending.ts > PENDING_TTL_MS) return;
-    // 立即消费，防止重复挂载到之后的其他发帖
-    GM_deleteValue(PENDING_KEY);
-
-    const file = await loadFirstImage(pending.imageUrls || [], pending.fileName);
-    if (!file) {
-      toast("⚠️ 黑粉直发：配图下载失败，请回直发台点「下载配图」后拖入", false);
-      return;
-    }
-
-    const input = await waitFor('input[data-testid="fileInput"]', 25000);
-    if (input) {
-      attachViaInput(input, file);
-      for (let i = 0; i < 16 && !hasAttachedMedia(); i++) await sleep(250);
-      if (hasAttachedMedia()) {
-        toast("✅ 黑粉直发：高清配图已自动挂载，确认后点「发帖」即可", true);
+    attaching = true;
+    try {
+      toast("⏳ 黑粉直发：正在自动挂载高清配图…", true);
+      const file = await loadFirstImage(pending.imageUrls || [], pending.fileName);
+      if (!file) {
+        toast("⚠️ 黑粉直发：配图下载失败（" + (pending.imageUrls || [])[0] + "）", false);
         return;
       }
-    }
-
-    const editor = await waitFor('[data-testid="tweetTextarea_0"]', 8000);
-    if (editor) {
-      attachViaPaste(editor, file);
-      for (let i = 0; i < 16 && !hasAttachedMedia(); i++) await sleep(250);
+      const editor = await waitFor('[data-testid="tweetTextarea_0"]', 25000);
       if (hasAttachedMedia()) {
-        toast("✅ 黑粉直发：高清配图已自动挂载，确认后点「发帖」即可", true);
+        GM_deleteValue(PENDING_KEY);
         return;
       }
+      const methods = [];
+      const input = document.querySelector(FILE_INPUT_SEL) || (await waitFor(FILE_INPUT_SEL, 4000));
+      if (input) methods.push(["input", () => attachViaInput(input, file)]);
+      if (editor) {
+        methods.push(["paste", () => attachViaPaste(editor, file)]);
+        methods.push(["drop", () => attachViaDrop(editor, file)]);
+      }
+      const tried = [];
+      for (const [name, fn] of methods) {
+        tried.push(name);
+        try {
+          fn();
+        } catch (e) {
+          console.warn("[hfkj-x] method failed", name, e);
+          continue;
+        }
+        if (await waitAttached(4000)) {
+          // 成功后才消费，避免 X 首次加载重定向/刷新时丢失待挂配图
+          GM_deleteValue(PENDING_KEY);
+          toast("✅ 黑粉直发：高清配图已自动挂载（" + name + "），确认后点「发帖」即可", true);
+          return;
+        }
+      }
+      toast("⚠️ 黑粉直发：自动挂图未成功（已试 " + (tried.join("/") || "无可用入口") + "），请按 ⌘V 粘贴", false);
+    } finally {
+      attaching = false;
     }
-    toast("⚠️ 黑粉直发：未能自动挂图，请回直发台点「下载配图」后拖入", false);
   }
 
   let lastPath = "";

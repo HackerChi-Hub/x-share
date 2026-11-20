@@ -320,7 +320,7 @@
   function refreshModeUi() {
     if (autoAttachInstalled()) {
       btnDesktopSend.textContent = "🚀 一键打开 X 并自动挂载配图";
-      modeHint.innerHTML = "✅ 已安装「自动挂图」脚本：点击后在已登录 X 的浏览器打开发帖框，<strong>正文与高清配图自动就位</strong>，确认后点「发帖」即可（Telegram 链接会直接自动跳转）。";
+      modeHint.innerHTML = "🟢 自动挂图脚本已生效（v" + document.documentElement.getAttribute("data-hfkj-autoattach") + "）：点击后在已登录 X 的浏览器打开发帖框，<strong>正文与高清配图自动就位</strong>，确认后点「发帖」即可（Telegram 链接会直接自动跳转）。";
     } else {
       modeHint.innerHTML = "⚠️ 尚未安装「自动挂图」脚本，当前为兼容模式（配图写入剪贴板后需在 X 按 <kbd>⌘V</kbd>）。" +
         "一次性安装：Chrome 装 Tampermonkey → 扩展详情打开「允许用户脚本」→ <a href=\"./hfkj-x-autoattach.user.js\" style=\"color:#38bdf8;font-weight:700;\">点此安装自动挂图脚本</a>，之后点击 Telegram 链接即可全自动带图。";
@@ -439,6 +439,10 @@
 
   function maybeAutoLaunch() {
     refreshModeUi();
+    if (autoMode && !autoAttachInstalled()) {
+      showBanner("err", "🔴 当前浏览器未检测到「自动挂图」脚本，所以只能 ⌘V。请确认：① 用的是装了 Tampermonkey 的 Chrome 用户；② chrome://extensions → Tampermonkey 详情 →「允许用户脚本」已打开；③ Tampermonkey 图标里「黑粉科技 · X 一键带图直发」为启用状态。改好后刷新本页。");
+      return;
+    }
     if (!autoMode || !autoAttachInstalled()) return;
     const txt = tweetBox.value.trim();
     if (!txt || xWeightedLength(txt) > 280) return;
