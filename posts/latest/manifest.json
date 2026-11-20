@@ -1,31 +1,31 @@
 {
-  "id": "2026-11-20-1012",
-  "title": "黑粉科技 · 11-20 早报",
-  "updated_at": "2026-11-20T10:14:24.370421+08:00",
+  "id": "2026-11-20-1300",
+  "title": "黑粉科技 · 11-20 午报",
+  "updated_at": "2026-11-20T13:04:30.418750+08:00",
   "entries": [
     {
       "index": 0,
       "label": "① 本期总览 · 全景风向",
-      "text": "⚡ Gemini 4 Neon 登顶 Agent Arena 榜一、Anthropic 上市首日破 2 万亿市值，而真正能白嫖的窗口正在关闭：OpenRouter 免费池又下架 1 款模型，端侧只剩 Parakeet TDT 0.6B 这类 1.9GB 级小模型还能塞进你的 Mac。 https://x.com/arena/status/2123169189397709174",
-      "weighted_length": 223,
+      "text": "⚡ Kimi-K3 与 27B 端侧权重同台，180B MoE 流式推理把本地部署的内存边界重新画了一遍\n• Kimi-K3 开源多模态权重更新\n• Kimi-K2.5 同日更新：39\nhttps://huggingface.co/moonshotai/Kimi-K3",
+      "weighted_length": 161,
       "image": "0.png",
-      "hint": "Neon登顶Agent榜 与免费池下架 同时发生（总览大图，适配一键带图转发）"
+      "hint": "27B 本地跑，180B 竟敢挑战 32GB 内存（总览大图，适配一键带图转发）"
     },
     {
       "index": 1,
-      "label": "② 破圈 · Gemini 4 Neon",
-      "text": "Gemini 4 Neon 拿 Agent Arena 1336 分、总榜第二，压过 Carbon 的 1303 分。但真新闻在价格：Carbon $4/$20、Neon $3/$15、Hydrogen $1.5/$7.5 每百万 token。选模型不再是选最强，是选最便宜那个够用的。 https://x.com/ArtificialAnlys/status/2123513872095269336 https://x.com/arena/status/2123169189397709174",
-      "weighted_length": 239,
+      "label": "② 破圈 · MoE",
+      "text": "180B 模型不等于要把 180B 全塞进内存。MoE 专家流式加载只把当前专家读进 32GB 工作集，四位总权重仍约 118.5GB；瓶颈会转向磁盘。想稳妥上手，27B Q4 约 19.1GB 更现实。原文：https://huggingface.co/blog/moe-expert-streaming",
+      "weighted_length": 189,
       "image": "1.png",
-      "hint": "优先截取 Artificial Analysis 原帖里逐条列出的 Gemini 4 Carbon/Neon/Hydrogen 三档每百万 token 价格那一段，以及紧随其后的 Arena 1336 分排行榜对照图"
+      "hint": "截 Hugging Face 文章中的专家流式加载架构段，并并排截 Bartowski 仓库 Q4_K_M 文件大小；终端只保留真实加载日志与首条返回，不拼速度成绩。"
     },
     {
       "index": 2,
-      "label": "③ 留存 · parakeet-tdt-0.6b-",
-      "text": "1.9GB 的 parakeet-tdt-0.6b-v2 加 mlx-audio v0.6.7，16GB Mac 上本地转写加 TTS 全部跑通，零 API 费、音频不出本机。同一天 OpenRouter 零定价池把 inkling-2-small:free 下架了，默认免费路由随时会断，备用线路先备好。 https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2",
-      "weighted_length": 232,
+      "label": "③ 留存 · mlx-audio v0.6.7",
+      "text": "本地语音 Agent 别只装模型：mlx-audio v0.6.7 更新 Whisper 跨注意力缓存与 STT 按需加载；Rust 解析器接住流式工具调用碎片，SoduWork 再要求证据验收。三层各管一件事，零按 token API 费不等于零内存成本。https://github.com/Neywa-Labs/mlx-audio/releases/tag/v0.6.7",
+      "weighted_length": 218,
       "image": "2.png",
-      "hint": "优先截取 NVIDIA parakeet-tdt-0.6b-v2 模型卡页的下载量与赞数区块，以及右侧 Files 列表中模型文件的实际体积刻度"
+      "hint": "首图截 mlx-audio v0.6.7 两条核心更新，第二张截 NVIDIA 文章的工具调用碎片示意，末图放终端真实 pip 升级与模块路径输出；SoduWork README 只截证据验证段和 unverified 边界说明。"
     }
   ]
 }
