@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-20-2218",
+  "title": "黑粉科技 · 11-20 晚报",
+  "updated_at": "2026-11-20T22:22:18.369314+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ 腾讯 4B 全模态视频权重落进 16GB Mac，DeepSeek MLX 极限量化与免费路由变天同晚登场。\n• 腾讯混元 WeMM-Video-4B-GGUF 上架\n• karminski-：前端与 Agent 提升明显\n• llama.cpp b12572 重构图节点预算\nhttps://huggingface.co/tencent/WeMM-Video-4B-GGUF",
+      "weighted_length": 217,
+      "image": "0.png",
+      "hint": "4B 全模态视频模型上 Mac，免费 API 又少 1 款（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 本地模型 · WeMM-Video-4B",
+      "text": "腾讯把 WeMM-Video-4B-GGUF 放出来了：4B 按 4bit 估算约 4.1GB，16GB Mac 可尝试本地视频与音频联合理解。完整家族还有 2B、9B、35B-A3B；先从短片验证，别把权重体积当总内存。https://huggingface.co/tencent/WeMM-Video-4B-GGUF",
+      "weighted_length": 189,
+      "image": "1.png",
+      "hint": "截腾讯 WeMM-Video-4B-GGUF 官方仓库文件列表，以及 GitHub 规格表中 2B、4B、9B、35B-A3B 四档与音频视觉联合理解说明。"
+    },
+    {
+      "index": 2,
+      "label": "③ 实用技巧 · DeepSeek-V4.1-Flas",
+      "text": "DeepSeek-V4.1-Flash 一下多出 2 条 MLX 分支：oQ2e-mtp 与 oQ3e-ngram-mtp。Mac 下载前先核对文件体积、统一内存和运行栈；别把 MLX 与 llama.cpp 混测。免费 API 也要留备用路由。https://huggingface.co/mlx-community/DeepSeek-V4.1-Flash-1017-oQ2e-mtp",
+      "weighted_length": 192,
+      "image": "2.png",
+      "hint": "并排截两个 MLX 仓库的完整模型名、基座和标签；另截 llama.cpp b12572 的 graph_nodes_per_tensor 默认 8 与架构覆盖说明。"
+    },
+    {
+      "index": 3,
+      "label": "④ 免费资源 · MoE Blogpost",
+      "text": "不占显存也能把 MoE 看明白：Hugging Face 官方互动 Space 已获 759 赞，浏览器直接打开。先弄清总参数、激活参数和专家路由，再决定本地模型下载哪个，少折腾几 GB 权重。https://huggingface.co/spaces/huggingface/moe-blogpost",
+      "weighted_length": 183,
+      "image": "3.png",
+      "hint": "官方 MoE 互动页免费玩，不占本机显存"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 新潮 Skill · Agent 自动化",
+      "text": "Agent 自动化不是提示词越长越好。宝玉拆解 Lauren Tan 指南：先讲清目标，再教 bot 怎么做，并给出自己的不同实践。你可以先写清输入、输出和检查标准，再逐步放权。原帖 274 赞。https://x.com/dotey/status/2123667995570413718",
+      "weighted_length": 191,
+      "image": "4.png",
+      "hint": "Agent 自动化别先堆提示词，先把目标讲清"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 实用技巧 · RSI Index",
+      "text": "看模型榜单先查样本数：scaling01 质疑 RSI Index 只有 4 项任务、每模型只跑 1 次，噪声太大，不能据此断言真正 RSI。自己的模型测试也尽量重复多次，别用单次高分下结论。https://x.com/scaling01/status/2123609814391570708",
+      "weighted_length": 184,
+      "image": "5.png",
+      "hint": "模型榜单先看样本数，4 项任务别当铁证"
+    }
+  ]
+}
