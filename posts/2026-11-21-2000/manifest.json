@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-21-2000",
+  "title": "黑粉科技 · 11-21 晚报",
+  "updated_at": "2026-11-21T20:06:04.341250+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ 5.4B 激活参数靠循环三层硬刚大模型，Inkling-2-Mini 三重量化齐发，Harness 取代模型成为新战场。\n• Ollama：5.4B 激活参数，32GB Mac 可跑\n• Unsloth 联创拆解 Inkling-2-Mini\n• llama.cpp：fused lightning\nhttps://x.com/ollama/status/2123889582303281557",
+      "weighted_length": 224,
+      "image": "0.png",
+      "hint": "5.4B 循环小钢炮上 Mac，Harness 比模型更值钱（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 本地模型 · Inkling-2-Mini",
+      "text": "5.4B 激活参数也能深推理？Inkling-2-Mini 让每个 token 在中层循环 3 次，官方称 32GB+ Mac 可跑。Ollama 0.40.17 预发布版已上架，MLX 与 GGUF 量化同日到齐，Unsloth UD3.1 保留超 90% 精度。想跑本地编程 Agent 的可以下手了。https://x.com/ollama/status/2123889582303281557",
+      "weighted_length": 237,
+      "image": "1.png",
+      "hint": "Ollama 官方帖中含 5.4B 激活参数与 32GB+ Mac 字样的段落，叠加 Daniel Han 帖中的循环架构示意图"
+    },
+    {
+      "index": 2,
+      "label": "③ 实用技巧 · Harness Adapters",
+      "text": "微软 Ignite 和 Hugging Face 同一天押注 Harness：模型外面的执行框架，比模型本身更影响表现和成本。HF 官方 harness adapters 可把手头模型适配到指定框架，harness-leaderboard 在线免费查排名。 https://huggingface.co/blog/harness-adapters-at-scale https://www.youtube.com/watch?v=iVm3lsgxH64",
+      "weighted_length": 233,
+      "image": "2.png",
+      "hint": "HF 博客 harness-adapters-at-scale 的适配流程图，叠加 harness-leaderboard 排名表格与 llama.cpp b12606 移除门控的发布说明段落"
+    },
+    {
+      "index": 3,
+      "label": "④ 免费资源 · Wan2.2 I2V",
+      "text": "没显卡也能玩 Wan2.2 图生视频：HF Spaces 这个 v3 在线 Demo 已冲上飙升榜，543 赞。浏览器打开、上传图片、填提示词就能生成，全程免费零部署。先在线试效果，满意再决定要不要本地部署，省得折腾环境。https://huggingface.co/spaces/JCisHERE/wan2-2-i2v-v3",
+      "weighted_length": 213,
+      "image": "3.png",
+      "hint": "Wan2.2 图生视频免费在线 Demo，浏览器直接出片"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 实用技巧 · Antigravity",
+      "text": "Antigravity 还没手机 App，但宝玉给了个替代方案：手机浏览器打开并登录，点「查看更多」再点分享，选「添加到主屏幕」，4 步搞定。之后手机上就能远程操控并回复所有 Antigravity 对话，出门也能盯任务。原帖 55 条评论在讨论体验。https://x.com/dotey/status/2123993892353675427",
+      "weighted_length": 240,
+      "image": "4.png",
+      "hint": "Antigravity 没有手机 App？4 步网页变遥控端"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 开源工具 · OpenComputer",
+      "text": "Devin 的开源替代出现了：OpenComputer 在 HN 拿到 105 分，仓库在 github.com/diggerhq/opencomputer。自主编程 Agent 完全开源，自己部署就能接本地模型或免费 API，数据不出本机，订阅费也省了。想自建编程 Agent 的值得克隆下来试试。https://news.ycombinator.com/item?id=50581403",
+      "weighted_length": 244,
+      "image": "5.png",
+      "hint": "OpenComputer：开源版 Devin，编程 Agent 自己部署"
+    }
+  ]
+}
