@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-21-0900",
+  "title": "黑粉科技 · 11-21 早报",
+  "updated_at": "2026-11-21T09:06:09.274104+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ 26.4B 循环模型把 16GB 本地图文推理推到台前，llama.cpp 与 MLX 同日补齐跑道。\n• 770B 总参、49B 激活的原生多模态 MoE\n• Gemini 4 Neon 零预制 3D 模型\n• llama.cpp b12600 原生加入\nhttps://x.com/TencentHunyuan/status/2123625549147070538",
+      "weighted_length": 202,
+      "image": "0.png",
+      "hint": "AI极客早报：Inkling 2 与llama.cpp（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 本地模型 · Inkling 2 Mini",
+      "text": "26.4B 的 Inkling 2 Mini，官方称 16GB RAM 可跑；Unsloth Q4_K_M 权重精确 15.47GB，DeepSWE v1.1 得分 48.2%。本地下载走 GGUF，llama.cpp 先升级 b12600；Mac 也有 MLX-VLM 路线。 https://huggingface.co/unsloth/Inkling-2-Mini-GGUF https://x.com/UnslothAI/status/2123873656069877899",
+      "weighted_length": 218,
+      "image": "1.png",
+      "hint": "优先截 Hugging Face 文件列表中 Q4_K_M 的 15.47GB 行，旁边保留模型名；第二张截 llama.cpp b12600 的 Loop graph / is_varloop 变更，第三张补终端加载与内存占用。"
+    },
+    {
+      "index": 2,
+      "label": "③ 开源工具 · claude-mem",
+      "text": "646 星：它捕获 Agent 会话、用 AI 压缩，再把相关背景注入下次会话，支持 Claude Code、Codex、Gemini 等。可先 git clone 后查看 package.json，再用虚拟项目测跨会话召回。Apache-2.0 开源免费，但压缩若走外部 API 仍可能计费。仓库：https://github.com/thedotmack/claude-mem",
+      "weighted_length": 244,
+      "image": "2.png",
+      "hint": "截仓库首页 captures / compresses / injects 的完整流程句与支持客户端列表；终端补 git clone、package.json 依赖和构建结果，虚拟项目演示时隐藏本机路径与密钥。"
+    },
+    {
+      "index": 3,
+      "label": "④ 开源工具 · Onlook",
+      "text": "Onlook 把网页搭建和编辑做成可视化开发流程，Hacker News 原帖已有 119 分，并指向 onlook-dev/onlook 开源仓库。设计师可先从官方仓库核对安装方式、许可证和托管功能边界，再拿一个落地页试编辑。开源不等于所有在线服务都免费。原帖：https://news.ycombinator.com/item?id=50562320",
+      "weighted_length": 244,
+      "image": "3.png",
+      "hint": "Onlook 开源可视化网页编辑器登上 HN"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 重点消息 · Claude Mobile",
+      "text": "Claude 移动端开始灰度新界面：底部导航直接放 Chat、Projects、Code、Artifacts，模型选择器和附件菜单也有调整。TestingCatalog 附了原生演示视频；想检查自己是否收到，先更新官方 App，再看底部导航，没出现可能只是灰度未到。原帖：https://x.com/testingcatalog/status/2123908634325508233",
+      "weighted_length": 243,
+      "image": "4.png",
+      "hint": "Claude 移动端灰度底部导航，Code 独立入口"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 实用技巧 · harness adapters",
+      "text": "Hugging Face 新文介绍 harness adapters：让你喜欢的模型适配自己的 harness，目标是同时改善表现与成本。实用做法是固定同一批任务，先跑原配置基线，再一次只改 adapter 相关配置，分别记录成功率、token 和耗时；别把提示词变化混成适配收益。官方博客：https://huggingface.co/blog/harness-adapters-at-scale",
+      "weighted_length": 262,
+      "image": "5.png",
+      "hint": "Harness adapters：不换模型先优化表现与成本"
+    }
+  ]
+}
