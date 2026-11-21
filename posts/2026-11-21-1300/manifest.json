@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-21-1300",
+  "title": "黑粉科技 · 11-21 午报",
+  "updated_at": "2026-11-21T13:05:06.185669+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ 腾讯 WeMM-Video 三档端侧权重上架，Unsloth 解码提速 2 倍，Google Loop 自主 Agent 与 Anthropic IPO 同天抢镜。\n• 腾讯混元新增 WeMM-Video-4B\n• scaling01 称 loopers 已来\n• llama.cpp b12602 发布\nhttps://huggingface.co/tencent/WeMM-Video-4B",
+      "weighted_length": 218,
+      "image": "0.png",
+      "hint": "4.1GB 视频权重上架，Unsloth 解码快 2 倍（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 本地模型 · WeMM-Video-4B",
+      "text": "腾讯混元一次上架 WeMM-Video 三档权重：2B-AWQ、4B、9B-FP8。按 4-bit 估算 4B 约 4.1GB，16GB Mac 或 8GB 独显可试；9B-FP8 约 11.6GB，留给 24GB 显卡。建议先下 4B 看模型卡再决定升级。仓库：https://huggingface.co/tencent/WeMM-Video-4B",
+      "weighted_length": 206,
+      "image": "1.png",
+      "hint": "截取 tencent/WeMM-Video-4B 模型卡的文件列表与权重体积，再并排 9B-FP8 与 2B-AWQ 页面顶部参数区。"
+    },
+    {
+      "index": 2,
+      "label": "③ 实用技巧 · Unsloth Desktop",
+      "text": "Unsloth Desktop 小更新很实在：banded attention 计价修正后同内存能装更多上下文，新增 Dspark 检测，原帖称解码快 2 倍，针对 Inkling-2-Mini。配合 llama.cpp b12602 的 SYCL 改进和 Bartowski 的 GGUF，先升引擎再挑量化档位… https://github.com/ggml-org/llama.cpp/releases/tag/b12602 https://x.com/danielhanchen/status/2123945836518551709",
+      "weighted_length": 263,
+      "image": "2.png",
+      "hint": "截取 Daniel Han 原帖中 banded attention 与 Dspark 两句原文，以及 llama.cpp b12602 Release 页的 #31428 变更与 macOS arm64 附件名。"
+    },
+    {
+      "index": 3,
+      "label": "④ 开源工具 · Onlook",
+      "text": "不会写前端也能改网页：开源工具 Onlook 把页面变成可视化画布，拖拽编辑同步落到代码，HN 已 119 分。仓库 onlook-dev/onlook 可自托管，搭配本地模型就是一条零成本建站流程。讨论与入口：https://news.ycombinator.com/item?id=50562320",
+      "weighted_length": 200,
+      "image": "3.png",
+      "hint": "Onlook 开源可视化搭网页，HN 冲到 119 分"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 新潮 Skill · Agent 长期记忆",
+      "text": "Agent 聊长就忘？V2EX 有人开源了长期记忆系统，自报 262k 上下文多跳 48.3%，高于 CAR 论文报告的 41%。数字是作者自测口径，建议先在自己的任务集复现再接入工作流。帖子与仓库入口：https://www.v2ex.com/t/1258680#reply1",
+      "weighted_length": 195,
+      "image": "4.png",
+      "hint": "开源 Agent 长期记忆：262k 多跳自报 48.3%"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 重点消息 · grok-build-0.1",
+      "text": "写死模型名的脚本要小心：xAI 发布说明写明 grok-build-0.1 已于 11 月 19 日 EOL，API 不再提供服务。建议全局搜索这个模型名并替换，再把模型名抽成配置项，下次下线只改一行。官方条目：https://docs.x.ai/docs/release-notes",
+      "weighted_length": 199,
+      "image": "5.png",
+      "hint": "grok-build-0.1 已停服，写死模型名的脚本要改"
+    }
+  ]
+}
