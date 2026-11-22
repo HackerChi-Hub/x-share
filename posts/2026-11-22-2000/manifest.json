@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-22-2000",
+  "title": "黑粉科技 · 11-22 晚报",
+  "updated_at": "2026-11-22T20:06:03.159749+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ 26B 循环 Transformer Inkling 2 Mini 以 1/5 激活参数追平 Qwen3.8 27B，18GB 内存即可本地跑；pxpipe 像素化上下文号称砍 98% 编程 token 账单。\n• Inkling：26B 循环 Transformer\n• WorldofAI：Inkling 2 Mini 26B\n• llama.cpp：WebGPU 更新 GDN\nhttps://x.com/lmstudio/status/2123958452808765580",
+      "weighted_length": 260,
+      "image": "0.png",
+      "hint": "AI极客晚报：Inkling 2 与pxpipe 本地代（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 本地模型 · Inkling 2 Mini",
+      "text": "26B 新模型 Inkling 2 Mini 用约 1/5 激活参数追平 Qwen3.8 27B。循环 Transformer 架构，4bit 约 18GB 内存，24GB Mac 就能跑，Apache 2.0 免费可商用。Mac 用户直接 mlx_lm 加载 mlx-community 4bit 权重，LM Studio 也已上架。 https://x.com/ArtificialAnlys/status/2123877874000445704 https://x.com/lmstudio/status/2123958452808765580",
+      "weighted_length": 261,
+      "image": "1.png",
+      "hint": "Artificial Analysis 帖内帕累托前沿图卡（Inkling 2 Mini 与 Qwen3.8 27B 同智力点位、激活参数差 5–6 倍）+ LM Studio 官方帖的 18GB 与 Apache 2.0 原文行 + HF 模型卡文件列表"
+    },
+    {
+      "index": 2,
+      "label": "③ 开源工具 · pxpipe",
+      "text": "开源代理 pxpipe 号称让 Codex、Claude 输入 token 最多省 98%。它把臃肿文本上下文渲染成 5x8 像素页图，走视觉编码。本地运行零附加费，改 base_url 指向本地端口就接入。建议同一任务直连与代理各跑一次，对比 input tokens 与成功率再决定常用。https://www.youtube.com/watch?v=aFmu4rLgH8U",
+      "weighted_length": 254,
+      "image": "2.png",
+      "hint": "AICodeKing 原片中 5x8 像素页图渲染画面与 Codex/Claude 接入前后 token 用量对比数字，以及 harness-leaderboard 榜单页跑分表"
+    },
+    {
+      "index": 3,
+      "label": "④ 免费资源 · harness-leaderboard",
+      "text": "选 Agent 框架不用先装一堆环境：HF 上 506 赞的 harness-leaderboard 浏览器打开就能看各 harness 评测跑分，零成本免部署。建议先对照榜单成绩再决定部署哪个，换框架或改上下文压缩时也能当成功率验收参照。https://huggingface.co/spaces/joelniklaus/harness-leaderboard",
+      "weighted_length": 218,
+      "image": "3.png",
+      "hint": "HF 飙升榜单 harness-leaderboard：506 赞，浏览器免费看 Agent 跑分"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 实用技巧 · Antigravity",
+      "text": "Antigravity 还没手机 App，但宝玉给了替代方案：手机浏览器打开网页登录，点「查看更多」再点分享，选「添加到主屏幕」，之后就能在手机上远程操控并回复所有 Antigravity 对话。长跑编程任务出门也能盯，92 赞帖原文在这。https://x.com/dotey/status/2123993892353675427",
+      "weighted_length": 231,
+      "image": "4.png",
+      "hint": "Antigravity 没有手机 App？4 步把网页装到主屏幕远程操控"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 开源工具 · WebBrain",
+      "text": "Mozilla 官方博客 Spotlight 了一款开源浏览器 Agent：WebBrain，主打本地优先，浏览数据不交给云端。和主流云端浏览器 Agent 是两条路线，隐私敏感场景多了可信选项，代码开源可二次开发。做网页自动化又在意数据出境的可以试。https://blog.mozilla.org/addons/2026/11/20/developer-spotlight-webbrain/",
+      "weighted_length": 235,
+      "image": "5.png",
+      "hint": "Mozilla 官方 Spotlight 开源 WebBrain：本地优先 AI 浏览器 Agent"
+    }
+  ]
+}
