@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-22-0900",
+  "title": "黑粉科技 · 11-22 早报",
+  "updated_at": "2026-11-22T09:06:11.449610+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ Mac 本地多模态集中上新，Gemini 4 隐藏入口与 Claude 数学证明主张同日引爆。\n• DeepSeek-V4-Pro-Qwen3.5-9B\n• Gemini 长按模型选择器惊现元素周期表\n• llama.cpp b12622 自动应用 scale\nhttps://huggingface.co/mlx-community/DeepSeek-V4-Pro-Qwen3.5-9B-8bit",
+      "weighted_length": 204,
+      "image": "0.png",
+      "hint": "11.6GB 跑多模态，Claude 挑战黎曼猜想（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 重点消息 · Claude + Lean",
+      "text": "Claude 被称参与发现黎曼猜想证明，但原帖明确写着专家仍在核验。真正该看 4 件事：形式化命题是否等价、用了哪些公理、有无 sorry、固定 Lean 版本能否完整构建。1700 万行代码不是结论，可复现证据才是。https://x.com/SemiAnalysis_/status/2124006824525299715",
+      "weighted_length": 214,
+      "image": "1.png",
+      "hint": "SemiAnalysis 帖中 claims、used Claude 与 experts are still verifying 同屏；补宝玉帖的 1700 万行 Lean 代码及机器检查提问。"
+    },
+    {
+      "index": 2,
+      "label": "③ 本地模型 · DeepSeek-V4-Pro 9B",
+      "text": "DeepSeek-V4-Pro-Qwen3.5-9B 已有 MLX 8bit，按参数权重约 11.6GB，24GB Mac 可试。先用 mlx_lm.generate 跑 64 token，再查多模态后端；模型卡有视觉、视频、工具调用标签，不等于全路径即开即用。https://huggingface.co/mlx-community/DeepSeek-V4-Pro-Qwen3.5-9B-8bit",
+      "weighted_length": 207,
+      "image": "2.png",
+      "hint": "模型卡的 MLX、safetensors、8bit 与 vision/video/tool-use 标签同屏；终端保留 mlx_lm.generate 命令和真实加载输出。"
+    },
+    {
+      "index": 3,
+      "label": "④ 免费资源 · Antigravity",
+      "text": "Antigravity 用户注意：TestingCatalog 称全员使用配额已重置，新缓存改进可让整体用量增加 22%，并点名 Neon 测试窗口。现在检查账号额度，用同一项目复跑任务，才能确认缓存是否真帮你省配额。https://x.com/testingcatalog/status/2124091275011821845",
+      "weighted_length": 204,
+      "image": "3.png",
+      "hint": "Antigravity 全员配额重置，缓存改进称可多用 22%"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 新潮 Skill · Gemini Neon",
+      "text": "宝玉分享了一个 Gemini Neon 视频制作 Artifact（skill），原帖直接附效果视频，目前 240 赞、77 评。重点不是单条提示词，而是把视频制作流程封装成可复用 Artifact；打开原帖看结构，再用自己的主题复跑。https://x.com/dotey/status/2124052093971624234",
+      "weighted_length": 215,
+      "image": "4.png",
+      "hint": "宝玉分享 Gemini Neon 视频制作 Artifact，附原生效果演示"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 实用技巧 · Twice-Told Critiques",
+      "text": "可能只得到同一意见 3 遍。Twice-Told Critiques 摘要称 ICLR 同阶段评审重叠从 2026 年 12.0% 升至 2027 年 21.3%。实用做法：分派不同审查目标，要求独立证据，最后按 claim 去重。代码已开源。https://github.com/IlyaGusev/twicetold",
+      "weighted_length": 205,
+      "image": "5.png",
+      "hint": "LLM 评审趋同有数据：ICLR 意见重叠升至 21.3%"
+    }
+  ]
+}
