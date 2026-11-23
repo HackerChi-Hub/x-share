@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-23-0900",
+  "title": "黑粉科技 · 11-23 早报",
+  "updated_at": "2026-11-23T09:05:28.204751+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ Claude 卷入黎曼猜想证明罗生门，MLX 端侧新权重与 llama.cpp token 级解析同夜更新。\n• 蚂蚁百灵 LingSante-3.1-flash\n• 「黎曼猜想已被解决」单帖 6 万赞，AI 数学证明引爆 X\n• llama.cpp：chat 实现 token 感知解析\nhttps://huggingface.co/inclusionAI/LingSante-3.1-flash",
+      "weighted_length": 232,
+      "image": "0.png",
+      "hint": "黎曼猜想罗生门与 Mac 端侧新权重（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 重点消息 · Riemann Hypothesis",
+      "text": "61,343 赞的快讯只有一句话：黎曼猜想被解决了。往下追两层才有信息：原始帖说的是「working with Claude」，Glazer 指出形式化命题其实是 GRH，Lean 还在编译，他估计 bug 概率低于 1%。结论：这是声称加验证中，不是已证实。https://x.com/ElliotGlazer/status/2123792743503933774\nhttps://x.com/yifanzhang_/status/2123789252756414577",
+      "weighted_length": 257,
+      "image": "1.png",
+      "hint": "截 @ElliotGlazer 帖中 GRH 判定与「<<1% it's a bug」两句，以及 @yifanzhang_ 帖的 61,343 赞计数区。"
+    },
+    {
+      "index": 2,
+      "label": "③ 本地模型 · Qwen3.8-Flash-Next",
+      "text": "Qwen3.8-Flash-Next 已有 MLX 的 oQ6-mtp 权重，Mac 一条命令就能跑：mlx_lm.generate --model mlx-community/Qwen3.8-Flash-Next-oQ6-mtp。同夜还有 Ornith-1.5-35B-A3B-oQ8，35B 总参只激活约 3B。记住：内存按总参算，速度按激活参看。全程 0 API 费。https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-oQ6-mtp",
+      "weighted_length": 259,
+      "image": "2.png",
+      "hint": "截 Qwen3.8-Flash-Next-oQ6-mtp 仓库 Files 分片体积列表，以及 llama.cpp b12638 release 中 token aware parsing (#29307) 条目。"
+    },
+    {
+      "index": 3,
+      "label": "④ 免费资源 · Google AI",
+      "text": "1,376 赞的爆料：Google AI 订阅可能在 12 月 2 日开放给第三方 harness 应用，Hermes 是首批之一。若成真，已订阅的人就能在别的工具里复用额度，不用再买一份 API。注意这是内测线索，官方还没公告，别提前掏钱。https://x.com/testingcatalog/status/2124473529764852190",
+      "weighted_length": 222,
+      "image": "3.png",
+      "hint": "Google AI 订阅或于 12 月 2 日开放第三方"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 新潮 Skill · 漫剧老李 Skill",
+      "text": "做 AI 短剧的可以看下这个：向阳乔木发帖称，朋友今年做了 20 多部 AI 短剧，一部红果播放超 5000 万，工作流里整合了「漫剧老李 AIGC 创作全流程 Skill」，抽卡成功率提升很多。GitHub Star 两千多，搜名字就能找到。https://x.com/vista8/status/2124527741613830190",
+      "weighted_length": 225,
+      "image": "4.png",
+      "hint": ""
+    },
+    {
+      "index": 5,
+      "label": "⑥ 实用技巧 · Agent 验证",
+      "text": "被 Agent 坑过的人不少：它说「验证完了」，上线却发现没做好，认错态度很好，下次照旧。宝玉这条 167 赞的帖把问题指向验证方式本身。实用改法：别问「你验证了吗」，改要它列出跑过的命令、真实输出和未通过项，证据比承诺可靠。https://x.com/dotey/status/2124603209394078089",
+      "weighted_length": 237,
+      "image": "5.png",
+      "hint": "Agent 说验证完了，怎么才能真的信它"
+    }
+  ]
+}
