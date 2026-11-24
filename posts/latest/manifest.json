@@ -1,15 +1,39 @@
 {
-  "id": "2026-11-24-0939-video",
-  "title": "黑粉科技 · 视频发布 · Claude联手Lean 4证出167年黎曼猜想？1",
-  "updated_at": "2026-11-24T09:39:14.100375+08:00",
+  "id": "2026-11-24-1300",
+  "title": "黑粉科技 · 11-24 午报",
+  "updated_at": "2026-11-24T13:02:49.614911+08:00",
   "entries": [
     {
       "index": 0,
-      "label": "🎬 正片发布 · 一键带封面与视频链接发 X",
-      "text": "Claude + Lean 4 证出 167 年黎曼猜想！1700 万行代码零报错通关：不摆公式拆透 0.5 中轴线、RSA 与百万大奖辟谣、四道安检门与 AI 机械裁判。\nYouTube：https://youtu.be/jttA9nByLHk\nB站：https://www.bilibili.com/video/BV1FKydzXEsb\n#RiemannHypothesis #Claude #Lean4",
-      "weighted_length": 229,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ Claude Ship 让 AI 自主审改 PR，llama.cpp b12669 与 Unsloth 1.9x 解码提速同期落地，端侧 GGUF 集体上新。\n• Unsloth 新版解码提速 1.9 倍\n• b12669：自动按目标体积挑最省误差的量化档位\n• Ship：智能体自行审改并批准 PR，仓库级可全开\nhttps://x.com/danielhanchen/status/2124901209836519479",
+      "weighted_length": 253,
       "image": "0.png",
-      "hint": "点击蓝色主按钮即可自动带上 16:9 正式封面与线上视频链接跳转 X，直接点「发帖」即可。"
+      "hint": "AI极客午报：Loop 9B 本地与llama.cpp（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 重点消息 · Claude Ship",
+      "text": "Claude Ship 让智能体自己审改并批准 PR，Team 版还能整仓自动开。可实测的真相：用 Codex 审 100 个开源 PR，76 个一条评论都没留。想在私有仓库用同样流程，本地 Localcode 一条命令就能起。https://inkcrow-studio.com/notes/100-pr-reviews/\nhttps://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+      "weighted_length": 226,
+      "image": "1.png",
+      "hint": "100 个开源 PR 实战笔记里的统计段落截图，重点框出 100 个 PR 中 76 个零评论的沉默率数字与留下的少量意见样本列表。"
+    },
+    {
+      "index": 2,
+      "label": "③ 本地模型 · GGUF 量化选型",
+      "text": "16GB Mac 跑图文多模态只要 6.3GB：SenseNova-Loop-9B-GGUF 的 Q4_K_M 主权重 5.42GB 加 mmproj 0.86GB。llama.cpp b12669 新增按目标体积自动挑量化档位，27B 压到 19.1GB 也能跑。https://github.com/ggml-org/llama.cpp/releases/tag/b12669\nhttps://huggingface.co/sensenova/SenseNova-Loop-9B-GGUF",
+      "weighted_length": 216,
+      "image": "2.png",
+      "hint": "HF 模型卡 Files 区域截图，框出 Q4_K_M 主权重 5.42GB 与 mmproj 0.86GB 两行体积数字，旁边对照 llama.cpp b12669 Release 里自动选量化的那条说明。"
+    },
+    {
+      "index": 3,
+      "label": "④ 新潮 Skill · Inbox Envoy",
+      "text": "新开源的邮箱分诊 Skill：Inbox Envoy，MIT 协议，GitHub 4 星。它把收件分类和优先级判断交给自己的智能体，主邮箱不用托管给第三方。https://github.com/salespeak-ai/inbox-envoy",
+      "weighted_length": 149,
+      "image": "3.png",
+      "hint": "自托管邮箱分诊 Skill 挂给自己的智能体"
     }
   ]
 }
