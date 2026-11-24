@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-24-0900",
+  "title": "黑粉科技 · 11-24 早报",
+  "updated_at": "2026-11-24T09:03:24.602255+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ 27B 去对齐变体压进 10GB、Inkling 2 Mini 本地提速 1.9 倍，Claude Ship 自主改 PR——今天最值得动手的是「端侧跑得更快 + 免费额度」这条线。\n• NariQ 把 Qwen3.8-27B 压到 BF16\n• Unsloth：Inkling 2 Mini 本地提速\n• v0.1.923-beta：8-12GB 显卡上\nhttps://news.ycombinator.com/item?id=50611402",
+      "weighted_length": 264,
+      "image": "0.png",
+      "hint": "27B 压进10GB，Inkling提速1.9倍（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 重点消息 · Claude Ship",
+      "text": "黎曼猜想被称已证明，20 步里 8 步由 Claude 完成，起始日 10 月 6 日，中文 X 上已 2,255 赞。同时 Google 把 Gemini Carbon 下放进 AI Pro 订阅。链接：https://x.com/kimmonismus/status/2123796564485530085",
+      "weighted_length": 167,
+      "image": "1.png",
+      "hint": "中文热帖里 2,255 赞与 75 条评论的数据行，以及配图中标注 Claude 参与的 20 个步骤时间轴，右侧露出 Gemini Carbon 出现在 Pro 套餐的半屏"
+    },
+    {
+      "index": 2,
+      "label": "③ 本地模型 · Qwen3.8-27B",
+      "text": "27B 的 Qwen3.8-27B 用 NariQ 压到约 10GB 还能对齐 BF16 质量，Unsloth 又让 Inkling 2 Mini 本地解码快约 1.9 倍，RTX Pro 6000 上 125 tokens/s，8-12GB 显卡可用。链接：https://news.ycombinator.com/item?id=50611402",
+      "weighted_length": 185,
+      "image": "2.png",
+      "hint": "终端里 mlx_lm 加载模型后的实时显存占用与 tok/s 输出，以及右侧 Unsloth 官方速度对比图上 125 tokens/s 与 1.9 倍的标注"
+    },
+    {
+      "index": 3,
+      "label": "④ 免费资源 · dots-3-note-preview",
+      "text": "OpenRouter 官方模型列表新增 dots-studio/dots-3-note-preview:free，模型 ID 后缀带 :free 就代表调用不收 API 费用。账单直接砍一块。链接：https://openrouter.ai/dots-studio/dots-3-note-preview:free",
+      "weighted_length": 157,
+      "image": "3.png",
+      "hint": "OpenRouter 新增免费档模型：调用费用直接为 0"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 新潮 Skill · vercel board",
+      "text": "Vercel 官方发了 vercel board，一块人和 Agent 共用的加密留言板：给 Agent 分配任务的共享空间、组建 swarm，还能分别设人机权限。目前是实验性功能，X 上已拿 2,719 赞。链接：https://x.com/vercel/status/2123234769236619673",
+      "weighted_length": 190,
+      "image": "4.png",
+      "hint": "Vercel board：人和 Agent 共用的加密留言板"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 实用技巧 · Codex PR 审查",
+      "text": "有人用 Codex 审了 100 个开源 PR，其中 76 个选择不留言。思路值得抄：让 Agent 先过一遍，再决定要不要开口，既省事又不招人嫌。链接：https://inkcrow-studio.com/notes/100-pr-reviews/",
+      "weighted_length": 151,
+      "image": "5.png",
+      "hint": "用 Codex 审 100 个开源 PR，76 个不留言"
+    }
+  ]
+}

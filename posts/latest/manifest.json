@@ -1,39 +1,55 @@
 {
-  "id": "2026-11-23-1300",
-  "title": "黑粉科技 · 11-23 午报",
-  "updated_at": "2026-11-23T13:04:28.188296+08:00",
+  "id": "2026-11-24-0900",
+  "title": "黑粉科技 · 11-24 早报",
+  "updated_at": "2026-11-24T09:03:24.602255+08:00",
   "entries": [
     {
       "index": 0,
       "label": "① 本期总览 · 全景风向",
-      "text": "⚡ 白嫖模型上新到 512K 免费额度、llama.cpp 一天连发新版本、Claude 被曝证出黎曼猜想——今天是本地部署与免费 API 双丰收的一天。\n• OpenRouter 上新免费模型 dots-3-note…\n• Bartowski 放出 Inkling-2-Mini-U…\n• Blaho：GPT-6.2 Astra 与 Sol 上线\nhttps://openrouter.ai/dots-studio/dots-3-note-preview",
-      "weighted_length": 263,
+      "text": "⚡ 27B 去对齐变体压进 10GB、Inkling 2 Mini 本地提速 1.9 倍，Claude Ship 自主改 PR——今天最值得动手的是「端侧跑得更快 + 免费额度」这条线。\n• NariQ 把 Qwen3.8-27B 压到 BF16\n• Unsloth：Inkling 2 Mini 本地提速\n• v0.1.923-beta：8-12GB 显卡上\nhttps://news.ycombinator.com/item?id=50611402",
+      "weighted_length": 264,
       "image": "0.png",
-      "hint": "AI极客午报：免费模型上下文与llama.cpp（总览大图，适配一键带图转发）"
+      "hint": "27B 压进10GB，Inkling提速1.9倍（总览大图，适配一键带图转发）"
     },
     {
       "index": 1,
-      "label": "② 重点消息 · 黎曼猜想",
-      "text": "黎曼猜想，开放 167 年，今天同时出现两条路线：Anthropic 数学家称与 Claude 协作给出证明（6,208 赞），Alessandro Masullo 宣布纯人工证明（10,995 赞）。判断真假只看两点：证明能被机器复核吗，数学家背书吗。本地先自己跑一遍推导再下结论。https://x.com/kimmonismus/status/2123791432800698792",
-      "weighted_length": 252,
+      "label": "② 重点消息 · Claude Ship",
+      "text": "黎曼猜想被称已证明，20 步里 8 步由 Claude 完成，起始日 10 月 6 日，中文 X 上已 2,255 赞。同时 Google 把 Gemini Carbon 下放进 AI Pro 订阅。链接：https://x.com/kimmonismus/status/2123796564485530085",
+      "weighted_length": 167,
       "image": "1.png",
-      "hint": "优先截取 @kimmonismus 那条原帖的完整画面：6,208 赞与 249 条评论的点赞数行、Levent Alpöge 原话引用块，以及帖内关于广义黎曼猜想的高清图表右上角。"
+      "hint": "中文热帖里 2,255 赞与 75 条评论的数据行，以及配图中标注 Claude 参与的 20 个步骤时间轴，右侧露出 Gemini Carbon 出现在 Pro 套餐的半屏"
     },
     {
       "index": 2,
-      "label": "③ 免费资源 · dots-3-note-previe",
-      "text": "OpenRouter 刚上架 dots-3-note-preview，输入输出都 0 元/M tokens，上下文 512K，OpenAI 兼容协议，Cline 和 OpenCode 填上就能用。同一天 llama.cpp 发了 b12648，给 OpenCL 补上 q4_k 规格验证 GEMM，本地 GGUF 跟着提速。 https://openrouter.ai/dots-studio/dots-3-note-preview",
-      "weighted_length": 234,
+      "label": "③ 本地模型 · Qwen3.8-27B",
+      "text": "27B 的 Qwen3.8-27B 用 NariQ 压到约 10GB 还能对齐 BF16 质量，Unsloth 又让 Inkling 2 Mini 本地解码快约 1.9 倍，RTX Pro 6000 上 125 tokens/s，8-12GB 显卡可用。链接：https://news.ycombinator.com/item?id=50611402",
+      "weighted_length": 185,
       "image": "2.png",
-      "hint": "优先截取 OpenRouter 模型页定价区域，输入与输出两栏的 0.00 标注和右侧 512K 上下文长度数字，右上角一并带上模型名 dots-3-note-preview。"
+      "hint": "终端里 mlx_lm 加载模型后的实时显存占用与 tok/s 输出，以及右侧 Unsloth 官方速度对比图上 125 tokens/s 与 1.9 倍的标注"
     },
     {
       "index": 3,
-      "label": "④ 实用技巧 · Agent 验证机制",
-      "text": "Agent 说「验证完了」别急着信。宝玉指出翻车的原因不在模型认不认错，而在我们让它验证的方式上：换成能被机器复核的验证方式，它才不敢随便说完成。本地跑 Agent 尤其要注意，没人替你兜底。https://x.com/dotey/status/2124603209394078089",
-      "weighted_length": 202,
+      "label": "④ 免费资源 · dots-3-note-preview",
+      "text": "OpenRouter 官方模型列表新增 dots-studio/dots-3-note-preview:free，模型 ID 后缀带 :free 就代表调用不收 API 费用。账单直接砍一块。链接：https://openrouter.ai/dots-studio/dots-3-note-preview:free",
+      "weighted_length": 157,
       "image": "3.png",
-      "hint": "Agent 说验证完了不代表真做完，验证方式才是关键"
+      "hint": "OpenRouter 新增免费档模型：调用费用直接为 0"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 新潮 Skill · vercel board",
+      "text": "Vercel 官方发了 vercel board，一块人和 Agent 共用的加密留言板：给 Agent 分配任务的共享空间、组建 swarm，还能分别设人机权限。目前是实验性功能，X 上已拿 2,719 赞。链接：https://x.com/vercel/status/2123234769236619673",
+      "weighted_length": 190,
+      "image": "4.png",
+      "hint": "Vercel board：人和 Agent 共用的加密留言板"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 实用技巧 · Codex PR 审查",
+      "text": "有人用 Codex 审了 100 个开源 PR，其中 76 个选择不留言。思路值得抄：让 Agent 先过一遍，再决定要不要开口，既省事又不招人嫌。链接：https://inkcrow-studio.com/notes/100-pr-reviews/",
+      "weighted_length": 151,
+      "image": "5.png",
+      "hint": "用 Codex 审 100 个开源 PR，76 个不留言"
     }
   ]
 }
