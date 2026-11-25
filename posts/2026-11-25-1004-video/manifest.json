@@ -1,0 +1,15 @@
+{
+  "id": "2026-11-25-1004-video",
+  "title": "黑粉科技 · 视频发布 · API黑箱窃密掺水起底！一折满血 Claude 别乱",
+  "updated_at": "2026-11-25T10:04:54.830955+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "🎬 正片发布 · 一键带封面与视频链接发 X",
+      "text": "搭了个本机靶场抓包测完所谓“一折满血 Claude API黑箱”，几个数字挺扎心：回车 0.1 秒 .env 密钥明文落库；前 4 轮给真模型立人设、第 5 轮切廉价模型直接省走 61% 成本；上游蹭 90% 缓存折扣，下游反而按 1.82 倍虚标扣费…\nYouTube：https://youtu.be/V_WBdJFgTLY\nB站：https://www.bilibili.com/video/BV1BWyzzKE5N",
+      "weighted_length": 272,
+      "image": "0.png",
+      "hint": "点击蓝色主按钮即可自动带上 16:9 正式封面与线上视频链接跳转 X，直接点「发帖」即可。"
+    }
+  ]
+}
