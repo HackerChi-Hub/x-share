@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-26-0900",
+  "title": "黑粉科技 · 11-26 早报",
+  "updated_at": "2026-11-26T09:03:25.713880+08:00",
+  "entries": [
+    {
+      "index": 0,
+      "label": "① 本期总览 · 全景风向",
+      "text": "⚡ 矩阵乘法指数被证死为 2.25、Anthropic 沙箱逃逸评估 Siren 上线 1700+ 场景、Qwen3.8-27B 量化权重压到 5.58GB——今天开源侧最值得动手的三件事。\n• llama.cpp 放出 b12751\n• Anthropic 前高管 Thariq 转投 OpenAI\n• OCRia-1：4B 文档解析模型，图片转\nhttps://github.com/ggml-org/llama.cpp/releases/tag/b12751",
+      "weighted_length": 265,
+      "image": "0.png",
+      "hint": "5.58GB 跑 27B：端侧量化与推理引擎今日全线更新（总览大图，适配一键带图转发）"
+    },
+    {
+      "index": 1,
+      "label": "② 重点消息 · 矩阵乘法指数 2.25",
+      "text": "矩阵乘法指数精确等于 2.25，Strassen 是对的。两个数学家各自发帖确认：Bubeck 讲上界 9/4 之后模型一直在啃下界，Williams 一句话钉死结论。此前这一块几乎全空白，AI 已经能进最硬的数学空地。https://x.com/SebastienBubeck/status/2125402576145572334",
+      "weighted_length": 205,
+      "image": "1.png",
+      "hint": "Bubeck 原帖正文中提到 9/4 上界与 LOWER BOUND 的两行文字，右侧露出 4,319 赞与 125 评的热度区"
+    },
+    {
+      "index": 2,
+      "label": "③ 本地模型 · Ternary-Bonsai-2.5",
+      "text": "27B 现在真能塞进 8GB 显存：prism-ml/Ternary-Bonsai-2.5-27B-GGUF 的 PTQ1_0 权重实测 5.58GB，加 mmproj 0.59GB，基座是 Qwen3.8-27B，8GB 独显或 16GB Mac 直接跑。本地零 API 费用，模型卡已标 5.9366 万次下载。https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF",
+      "weighted_length": 225,
+      "image": "2.png",
+      "hint": "HF 模型卡 Files 区域 PTQ1_0 权重 5.58GB 与 mmproj 0.59GB 两行体积标注"
+    },
+    {
+      "index": 3,
+      "label": "④ 免费资源 · OCRia-1",
+      "text": "本地免费把图片转成带表格的 Markdown：ollama pull llamaindex/ocria-1:bf16。OCRia-1 是基于 Qwen 的 4B 文档解析模型，专门处理图片并输出含表格图表的结构化文本。模型开源免费，不用注册、不用 API Key，https://x.com/ollama/status/2125317662612041819",
+      "weighted_length": 217,
+      "image": "3.png",
+      "hint": "一条命令拉起 4B 文档解析模型，图片直接转 Markdown"
+    },
+    {
+      "index": 4,
+      "label": "⑤ 新潮 Skill · MCP Skills",
+      "text": "Claude 给 MCP 加了 3 个能力：Skills over MCP、Tasks、Elicitation。最实用的第一个：Skills 现在能和 MCP 一起发布，工具说明改了、技能不会掉队。宝玉做了中文逐条拆解，附演示视频。https://x.com/dotey/status/2125421676582043960",
+      "weighted_length": 197,
+      "image": "4.png",
+      "hint": "Claude 给 MCP 补三项能力，Skills 可与 MCP 同发布"
+    },
+    {
+      "index": 5,
+      "label": "⑥ 实用技巧 · Hub 多会话调度",
+      "text": "同时开着 Claude Code 和 Codex 的看这条：Hub 是个开源协调器，把两类 CLI 的会话统一管理起来，免得多窗口并行时上下文断掉。Apache-2.0 协议，GitHub 星标 27，自己部署，代理会话全留在本机。https://github.com/icons8/hub",
+      "weighted_length": 205,
+      "image": "5.png",
+      "hint": "Claude Code 和 Codex 同时开，Hub 帮你把会话管起来"
+    }
+  ]
+}
