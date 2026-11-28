@@ -1,15 +1,17 @@
 {
   "id": "2026-11-28-1901-video",
-  "title": "黑粉科技 · 视频发布 · 别再只装大厂官方包！2026年底视频制作与小众开源 ",
-  "updated_at": "2026-11-28T19:01:53.773368+08:00",
+  "title": "黑粉科技 · 视频发布 · 视频与小众开源 Agent Skills 盘点",
+  "updated_at": "2026-11-28T19:03:10.847181+08:00",
   "entries": [
     {
       "index": 0,
-      "label": "🎬 正片发布 · 一键带封面与视频链接发 X",
-      "text": "把年底爆火的开源 Agent Skills 翻了一圈，老盯着大厂官方包真错过了好东西：视频赛道已经有 564 个开源技能，从 HyperFrames 混剪到花叔 36 种画风；还有专治 AI 废话的 i-have-adhd。顺带整理了 Snyk 36.82% 查毒防坑三步…\nYouTube：https://youtu.be/yMlJ1gPtdP4\nB站：https://www.bilibili.com/video/BV1PF1TzxE74",
-      "weighted_length": 271,
-      "image": "0.png",
-      "hint": "点击蓝色主按钮即可自动带上 16:9 正式封面与线上视频链接跳转 X，直接点「发帖」即可。"
+      "label": "🎬 正片发布 · 零外链主帖 + 1楼视频原链",
+      "text": "把年底爆火的开源 Agent Skills 翻了一圈，老盯着大厂官方包真错过了好东西：视频赛道已经有 564 个开源技能，从 HyperFrames 混剪到花叔 36 种画风；还有专治 AI 废话的 i-have-adhd。顺带整理了 Snyk 36.82% 查毒防坑三步，正片和清单放 1 楼👇",
+      "weighted_length": 228,
+      "image": "0.jpg",
+      "hint": "主帖零外链防降权，点击主按钮自动带 16:9 正式封面跳转 X；发出后复制 1 楼自评贴上 YouTube 与 B站链接即可。",
+      "reply_text": "8 分钟完整正片与 30 秒查毒自查指南：\nYouTube：https://youtu.be/yMlJ1gPtdP4\nB站：https://www.bilibili.com/video/BV1PF1TzxE74\n官网：https://hyphentech.top/",
+      "reply_weighted_length": 128
     }
   ]
 }
